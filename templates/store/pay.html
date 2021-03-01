@@ -1,0 +1,38 @@
+{% extends 'store/base.html' %}
+{% block body %}
+
+<head>
+    <style>
+        .center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<div class="center">
+<form class="text-center border border-light p-5" action="success" method="POST">
+
+{% csrf_token %}
+
+<!-- RAZORPAY INTEGRATION HERE -->
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_F6XHUzkD9qre7E"
+    data-amount={{price}}
+    data-currency="INR"
+    data-order_id="{{order_id}}"
+    data-buttontext="Pay with Razorpay"
+    data-name="Dogs Dream Food"
+    data-description="Dogs Dream Food"
+    data-image="https://example.com/your_logo.jpg"
+    data-prefill.name="PC"
+    data-prefill.email="{{email}}"
+    data-theme.color="#F37254">
+</script>
+</form>
+</div>
+</div> 
+{% endblock %}

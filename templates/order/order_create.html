@@ -1,0 +1,21 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block body %}
+<!-- ========================= SECTION CONTENT ========================= -->
+<form action="" method="post">
+  {% csrf_token %}
+  {{form}}
+  <div class="form-group">
+		<label class="custom-control custom-radio custom-control-inline">
+		  <input class="custom-control-input" checked="" type="radio" name="payment" value="COD">
+		  <span class="custom-control-label"> Cash On Delivery <br>Free </span>
+		</label>
+		<label class="custom-control custom-radio custom-control-inline">
+		  <input class="custom-control-input" type="radio" name="payment" value="RAZORPAY">
+		  <span class="custom-control-label"> Pay with RP <br> </span>
+		</label>
+	</div> <!-- form-group end.// -->
+  <button type="submit">Complete Order</button>
+</form>
+{% endblock %}
